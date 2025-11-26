@@ -1,0 +1,265 @@
+/* style.css - Estilos de la aplicación */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Controls */
+.controls {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.controls-row {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-play {
+  background: #10b981;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.btn-play.playing {
+  background: #ef4444;
+}
+
+.kit-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-kit {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn-kit.active {
+  background: #8b5cf6;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volume-control input[type="range"] {
+  width: 120px;
+}
+
+.btn-clear {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.patterns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.patterns span {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.btn-pattern {
+  background: #3b82f6;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* Sequencer */
+.sequencer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-x: auto;
+}
+
+.beat-numbers {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.beat-number {
+  width: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+}
+
+.beat-number.current {
+  color: #ec4899;
+  transform: scale(1.2);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grid-row {
+  display: flex;
+  gap: 4px;
+}
+
+.track-label {
+  width: 100px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.track-label:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.cell.active {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+}
+
+.cell.current-beat {
+  border-color: #ec4899;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.8);
+}
+
+.cell.beat-marker {
+  margin-left: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  opacity: 0.8;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .kit-selector {
+    width: 100%;
+  }
+
+  .cell {
+    width: 40px;
+    height: 40px;
+  }
+
+  .beat-number {
+    width: 40px;
+  }
+
+  .track-label {
+    width: 80px;
+    font-size: 0.8rem;
+  }
+}
